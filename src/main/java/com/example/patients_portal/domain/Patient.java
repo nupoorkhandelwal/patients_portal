@@ -2,9 +2,10 @@ package com.example.patients_portal.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 @Entity
-@Table(name = "patient")
+@Table(name = "patients")
 public class Patient  implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -22,7 +23,7 @@ public class Patient  implements Serializable {
     private String city;
 
     @Column(name = "dob")
-    private int dob;
+    private Date dob;
 
     public int getId() {
         return id;
@@ -52,7 +53,7 @@ public class Patient  implements Serializable {
         this.city = city;
     }
 
-    public int getDob() {
+    public Date getDob() {
         return dob;
     }
 
