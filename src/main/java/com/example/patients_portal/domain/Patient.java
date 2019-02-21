@@ -1,13 +1,10 @@
-package com.example.patients_portal;
-
-import lombok.Data;
+package com.example.patients_portal.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Data
-@Table(name ="patient")
+@Table(name = "patient")
 public class Patient  implements Serializable {
     private static final long serialVersionUID = 1L;
 

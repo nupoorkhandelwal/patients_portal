@@ -1,4 +1,4 @@
-package com.example.patients_portal;
+package com.example.patients_portal.domain;
 
 import lombok.Data;
 

@@ -1,6 +1,10 @@
-package com.example.patients_portal;
+package com.example.patients_portal.service;
 
 
+import com.example.patients_portal.domain.Patient;
+import com.example.patients_portal.utils.PatientUtils;
+import com.example.patients_portal.domain.PatientViewFetchRequest;
+import com.example.patients_portal.dao.PatientDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,8 +20,9 @@ public  class PatientServiceImpl implements PatientService {
     private PatientDao patientDao;
 
     @Override
-    public void getPatient() {
-
+    public void getPatient(PatientViewFetchRequest patientViewFetchRequest) {
+//        Patient patient = this.patientUtils.map(patientViewFetchRequest, Patient.class);
+//        this.patientDao.getPatient(patientViewFetchRequest.);
     }
 
     @Override

@@ -1,5 +1,7 @@
-package com.example.patients_portal;
+package com.example.patients_portal.dao;
 
+import com.example.patients_portal.domain.Patient;
+import com.example.patients_portal.repository.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -7,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class PatientDaoImpl implements PatientDao{
+public class PatientDaoImpl implements PatientDao {
 
     @Autowired
     private PatientRepository patientRepository;
@@ -37,9 +39,8 @@ public class PatientDaoImpl implements PatientDao{
         }
     }
 
-//    @Override
-//    public Boolean deletePatient(int PatientId) {
-//
-//        return patientRepository.deletePatient(PatientId);
-//    }
+    @Override
+    public Boolean deletePatient(int patientId) {
+        return patientRepository.deleteById(patientId);
+    }
 }

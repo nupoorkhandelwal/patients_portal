@@ -1,7 +1,6 @@
-package com.example.patients_portal;
+package com.example.patients_portal.utils;
 
 
-import lombok.extern.slf4j.Slf4j;
 import org.dozer.DozerBeanMapper;
 import org.springframework.stereotype.Component;
 
@@ -10,7 +9,6 @@ import java.util.stream.Collectors;
 
 
 @Component
-@Slf4j
 public class PatientUtils {
 
     private DozerBeanMapper dozerBeanMapper;
