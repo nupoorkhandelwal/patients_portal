@@ -7,11 +7,11 @@ import java.util.Date;
 @Entity
 @Table(name = "patients")
 public class Patient  implements Serializable {
-    private static final long serialVersionUID = 1L;
+   // private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Long id;
 
     @Column(name = "name")
     private String name;
@@ -25,7 +25,7 @@ public class Patient  implements Serializable {
     @Column(name = "dob")
     private Date dob;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
@@ -57,8 +57,8 @@ public class Patient  implements Serializable {
         return dob;
     }
 
-    public void setDob(int Dob) {
-        this.dob = dob;
+    public void setDob(Date Dob) {
+        this.dob = Dob;
     }
 
     @Override

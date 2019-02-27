@@ -1,35 +1,42 @@
 package com.example.patients_portal.rest;
 
-import com.example.patients_portal.domain.PatientViewFetchRequest;
+import com.example.patients_portal.domain.Patient;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
-
+@CrossOrigin(origins = {"*"},
+        maxAge = 4800, allowedHeaders = "*")
 @RestController
+@RequestMapping(value = "/patients", produces = "application/hal+json")
 public interface PatientApi {
 
-
-    @GetMapping(value = "/public/patient",
-            produces= {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
+    @GetMapping(value = "/patients",consumes = {MediaType.ALL_VALUE},
+            produces= {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value="Return all Patients", notes="This is a public API", response= List.class)
+    @CrossOrigin(origins = {"http://localhost:3000","*"}, maxAge = 6000, allowedHeaders = {"Content-Type","application/json"})
     ResponseEntity getPatients();
 
 
+    @GetMapping(value = "/patients/{id}",
+            produces= {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
+    @ApiOperation(value="Return Patient for given Id", notes="This is a public API", response= Patient.class)
+    ResponseEntity getPatient(@PathVariable("id") int patientId);
 
-    @PostMapping(value = "/public/patient",
+
+    @PostMapping(value = "/patients",
             produces= {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ApiResponse(code = HttpServletResponse.SC_OK, message = "Success")
-    ResponseEntity addPatient(@RequestBody PatientViewFetchRequest patientViewFetchRequest);
+    ResponseEntity addPatient(@RequestBody Patient patient);
 
-
+    @DeleteMapping(value = "/patients/{id}",
+            produces= {MediaType.APPLICATION_JSON_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE})
+    @ApiResponse(code = HttpServletResponse.SC_OK, message = "Success")
+    ResponseEntity deletePatient(@PathVariable("id") int patientId);
 
 }

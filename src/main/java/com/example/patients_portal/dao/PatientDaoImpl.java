@@ -30,13 +30,9 @@ public class PatientDaoImpl implements PatientDao {
 
     @Override
     public Boolean addPatient(Patient patient) {
-        List<Patient> list = patientRepository.findByIdAndName(patient.getId(), patient.getName());
-        if (list.size() > 0) {
-            return false;
-        } else {
-            patientRepository.save(patient);
-            return true;
-        }
+        patientRepository.save(patient);
+             return true;
+
     }
 
     @Override
