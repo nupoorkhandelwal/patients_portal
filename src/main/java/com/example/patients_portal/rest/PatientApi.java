@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
-@CrossOrigin(origins = {"*"},
-        maxAge = 4800, allowedHeaders = "*")
 @RestController
 @RequestMapping(value = "/patients", produces = "application/hal+json")
 public interface PatientApi {
@@ -19,7 +17,6 @@ public interface PatientApi {
     @GetMapping(value = "/patients",consumes = {MediaType.ALL_VALUE},
             produces= {MediaType.APPLICATION_JSON_VALUE})
     @ApiOperation(value="Return all Patients", notes="This is a public API", response= List.class)
-    @CrossOrigin(origins = {"http://localhost:3000","*"}, maxAge = 6000, allowedHeaders = {"Content-Type","application/json"})
     ResponseEntity getPatients();
 
 

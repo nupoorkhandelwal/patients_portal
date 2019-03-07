@@ -1,5 +1,7 @@
 package com.example.patients_portal.domain;
 
+import javax.persistence.Id;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -8,10 +10,16 @@ import java.util.Date;
 @Table(name = "patients")
 public class Patient  implements Serializable {
    // private static final long serialVersionUID = 1L;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @Column(name = "id")
+//    private int id;
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @Column(name ="pateintid")
+    private int patientId;
 
     @Column(name = "name")
     private String name;
@@ -25,8 +33,13 @@ public class Patient  implements Serializable {
     @Column(name = "dob")
     private Date dob;
 
-    public Long getId() {
-        return id;
+//    public int getId() {
+//        return id;
+//    }
+
+
+    public int getPatientId() {
+        return patientId;
     }
 
     public String getName() {
@@ -63,7 +76,7 @@ public class Patient  implements Serializable {
 
     @Override
     public String toString() {
-        return "Patient [id=" + id + ", name=" + name + ", surname=" + surname + ", city=" + city
+        return "Patient [id=" + patientId + ", name=" + name + ", surname=" + surname + ", city=" + city
                 + ", dob=" + dob + "]";
     }
 

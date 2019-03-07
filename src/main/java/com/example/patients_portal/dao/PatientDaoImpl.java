@@ -25,14 +25,12 @@ public class PatientDaoImpl implements PatientDao {
     public Patient getPatient(int PatientId) {
         Patient patient = patientRepository.findById(PatientId);
         return patient;
-
     }
 
     @Override
     public Boolean addPatient(Patient patient) {
         patientRepository.save(patient);
              return true;
-
     }
 
     @Override
